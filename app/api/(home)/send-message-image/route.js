@@ -27,7 +27,8 @@ export const POST = async (request) => {
             form.append('target', item.nope);
 
             try {
-                await axios.post('http://localhost:8080/api/sendmedia', form, {
+                const url= process.env.NEXT_PUBLIC_WAPI_URL + '/api/sendmedia'
+                await axios.post(url, form, {
                     headers:{
                         'Content-Type': 'multipart/form-data',
                     }
