@@ -57,6 +57,7 @@ export default function Home() {
         if (response.status === 200) {
           setJumlahKontak(response.data.jumlah)
           setLoadingJumlah(false)
+          console.log("jumlah data daari server",response.data.jumlah)
         }
       } catch (error) {
         console.log("Error calculate kontak", error)
