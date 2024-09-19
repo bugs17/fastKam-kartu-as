@@ -3,6 +3,7 @@ import { NextResponse } from "next/server"
 
 export const GET = async (request) => {
     const jumlahKontak = await prisma.kontak.findMany()
+    console.log("JUmlah kontak", jumlahKontak.length)
 
     return NextResponse.json({"jumlah":jumlahKontak.length}, {status:200})
 }

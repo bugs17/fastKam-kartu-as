@@ -43,7 +43,6 @@ export default function Home() {
   }, [useImg, file])
 
   useEffect(() => {
-
     // meminta jumlah data kontak
     const fetchJumlahKontak = async () => {
       setLoadingJumlah(true)
