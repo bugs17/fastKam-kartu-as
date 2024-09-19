@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - '3002:3000'
-      - '5551':'5555'
+      - '5551:5555'
     volumes:
       - ./realDB:/app/realDB
       - ./public/kontak:/app/public/kontak
