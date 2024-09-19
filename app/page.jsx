@@ -225,11 +225,12 @@ export default function Home() {
       setSubmitStatus(false)
     }
   }
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   return (
     <div className="flex flex-row lg:px-52 pt-20 w-full h-full justify-between">
       <div className="flex-1 flex flex-col gap-7">
-      <span className="">Target: {jumlahKontak} penerima</span>
+      <span className="">Target: {jumlahKontak} penerima dari {backendUrl}</span>
 
         <div className="form-control w-40">
           <label className="label cursor-pointer">
