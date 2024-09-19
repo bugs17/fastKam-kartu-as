@@ -13,6 +13,12 @@ RUN npm install
 # Menyalin semua file dari proyek ke dalam container
 COPY . .
 
+# Generate Prisma Client
+RUN npx prisma generate
+
+# Build aplikasi Next.js
+RUN npm run build
+
 # Build aplikasi Next.js
 RUN npm run build
 
@@ -35,7 +41,5 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # Expose port 3000
 EXPOSE 3000
 
-# Jalankan perintah migrasi Prisma
-RUN npx prisma db push
 
 
