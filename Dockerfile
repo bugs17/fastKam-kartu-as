@@ -5,8 +5,8 @@ FROM node:18-alpine AS builder
 WORKDIR /app
 
 # Menyalin package.json dan package-lock.json
-COPY package*.json ./
-
+COPY ./package.json ./
+COPY ./package-lock.json ./
 # Install dependencies
 RUN npm install
 
@@ -15,9 +15,6 @@ COPY . .
 
 # Generate Prisma Client
 RUN npx prisma generate
-
-# Build aplikasi Next.js
-RUN npm run build
 
 # Build aplikasi Next.js
 RUN npm run build
@@ -40,6 +37,4 @@ ENV NEXT_TELEMETRY_DISABLED 1
 
 # Expose port 3000
 EXPOSE 3000
-
-
 
