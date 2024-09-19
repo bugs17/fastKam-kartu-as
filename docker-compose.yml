@@ -10,7 +10,7 @@ services:
     volumes:
       - ./realDB:/app/prisma/db/
     command: "npm run start"
-    
+    restart: always
 
 volumes:
   dev-db:
