@@ -48,7 +48,12 @@ export default function Home() {
       setLoadingJumlah(true)
       try {
         const url = process.env.NEXT_PUBLIC_BACKEND_URL + '/api/jumlah'
-        const response = await axios.get(url)
+        const response = await axios.get(url, {
+          headers:{
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache',
+          }
+        })
         if (response.status === 200) {
           setJumlahKontak(response.data.jumlah)
           setLoadingJumlah(false)
