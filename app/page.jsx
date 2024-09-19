@@ -61,6 +61,7 @@ export default function Home() {
         setLoadingJumlah(false)
       }
     }
+    console.log('muat ulang jumlah kontak')
     fetchJumlahKontak()
   }, [])
 
@@ -229,7 +230,7 @@ export default function Home() {
   return (
     <div className="flex flex-row lg:px-52 pt-20 w-full h-full justify-between">
       <div className="flex-1 flex flex-col gap-7">
-      <span className="">Target: {jumlahKontak} penerima</span>
+      <span className="">Target: `${loadingJumlah ? '0' : jumlahKontak}` penerima</span>
 
         <div className="form-control w-40">
           <label className="label cursor-pointer">
