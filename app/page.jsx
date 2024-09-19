@@ -230,6 +230,7 @@ export default function Home() {
   return (
     <div className="flex flex-row lg:px-52 pt-20 w-full h-full justify-between">
       <div className="flex-1 flex flex-col gap-7">
+      {console.log(backendUrl)}
       <span className="">Target: {jumlahKontak} penerima dari {backendUrl}</span>
 
         <div className="form-control w-40">
