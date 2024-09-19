@@ -54,7 +54,7 @@ export default function Home() {
           setLoadingJumlah(false)
         }
       } catch (error) {
-        console.log("Error calculate kontak")
+        console.log("Error calculate kontak", error)
         setLoadingJumlah(false)
       }finally{
         setLoadingJumlah(false)
