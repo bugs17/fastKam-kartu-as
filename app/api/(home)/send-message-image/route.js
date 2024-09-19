@@ -10,7 +10,6 @@ export const POST = async (request) => {
 
 
     let kontak;
-    let jumlahKontakTerkirim = 0;
 
     try {
         kontak = await prisma.kontak.findMany()
@@ -34,14 +33,13 @@ export const POST = async (request) => {
                     }
                 })
             } catch (error) {
-                console.log('Gagal hit wa api')
+                console.log('Gagal hit wa api', error)
             }
-            jumlahKontakTerkirim++
         }
         
     } catch (error) {
         return NextResponse.json({"message":"Internal server error"}, {status:500})
     }
 
-    return  NextResponse.json({"message":`Pesan telah terkirim ke ${jumlahKontakTerkirim} penerima`},{status:200})
+    return  NextResponse.json({"message":`success`},{status:200})
 }
