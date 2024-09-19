@@ -9,6 +9,7 @@ services:
       - '3002:3000'
     volumes:
       - ./realDB:/app/prisma/db/
+      - ./public/kontak:/app/public/kontak
     command: "npm run start"
     restart: always
 
