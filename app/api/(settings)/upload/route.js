@@ -43,11 +43,15 @@ export const POST = async (request) => {
         const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
         const addData = async (nope) => {
-            await prisma.kontak.create({
-                data:{
-                    nope:nope
-                }
-            })
+            try {
+                await prisma.kontak.create({
+                    data:{
+                        nope:nope
+                    }
+                })
+            } catch (error) {
+                console.log(`gagal add data kontak dari file ${filePath}`, error)
+            }
         }
 
         let kontakExist;
@@ -55,6 +59,7 @@ export const POST = async (request) => {
             // Mendapatkan data kontak yang sudah ada dari database
             kontakExist = await prisma.kontak.findMany();
         } catch (error) {
+            console.log("Gagal mengambil semua data kontak", error)
             return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
         }
 
