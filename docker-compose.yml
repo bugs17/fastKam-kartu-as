@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3002:3000'
+    volumes:
+      - ./realDB:/app/prisma/db/
+    command: "npm run start"
+
+volumes:
+  dev-db:
