@@ -10,6 +10,9 @@ services:
     volumes:
       - ./realDB:/app/prisma/db/
     command: "npm run start"
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: "kartuas.fastkam.site"
+      NEXT_PUBLIC_WAPI_URL: "http://10.55.68.99:7000"
 
 volumes:
   dev-db:
