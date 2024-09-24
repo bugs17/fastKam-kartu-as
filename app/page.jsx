@@ -239,7 +239,7 @@ export default function Home() {
 
         <div className="form-control w-40">
           <label className="label cursor-pointer">
-            <span className="label-text">Image</span>
+            <span className="label-text">File</span>
             <input type="checkbox" className="toggle toggle-secondary toggle-md" checked={useImg}  onChange={handleChangeImage} />
           </label>
         </div>
@@ -281,12 +281,18 @@ export default function Home() {
         </label>}
 
         {/* upload image */}
-        {useImg && <input
-        ref={imgRef}
-        onChange={handleChangeUpload}
-        type="file"
-        accept="image/*,video/*"
-        className={`file-input file-input-bordered w-full max-w-xs self-center`} />}
+        {useImg && 
+        <div className="flex flex-col gap-5">
+          <input
+          ref={imgRef}
+          onChange={handleChangeUpload}
+          type="file"
+          accept="image/*,video/*,.xlsx,.xls,.pdf,.docx"
+          className={`file-input file-input-bordered w-full max-w-xs self-center`} />
+          <span className="self-center text-sm text-slate-400">(Image, Video, Docx, Pdf, Xlsx, Xls)</span>
+        </div>
+
+        }
 
         {/* textarea */}
         {!useLokasi && <label className="form-control">

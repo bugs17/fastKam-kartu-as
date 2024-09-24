@@ -34,7 +34,7 @@ const Settings = () => {
                 }
             })
             if (response.status === 200) {
-                setAllertMsg("Kontak telah berhasil di masukan ke Dtabase")
+                setAllertMsg("Kontak telah berhasil di masukan ke Database")
                 setAllert(true)
                 setLoading(false)
                 ref.current.value = null
@@ -69,12 +69,12 @@ const Settings = () => {
             <span onClick={() => setAllert(false)} className='font-bold text-red-500 cursor-pointer'>X</span>
         </div>}
         <div className="label">
-            <span className="label-text">{"Upload file nomor kontak (format file xlsx)"}</span>
+            <span className="label-text">{"Upload file nomor kontak (format file xlsx, csv)"}</span>
         </div>
         <form className='flex flex-col gap-6' onSubmit={handleSubmit}>
             <input
             ref={ref}
-            accept='.csv, .xls, .xlsx'
+            accept='.csv, .xlsx'
             onChange={handleChange}
             type="file"
             className="file-input file-input-bordered w-full max-w-xs" />

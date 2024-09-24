@@ -11,6 +11,7 @@ generator client {
 datasource db {
   provider = "sqlite"
   url      = "file:../realDB/dev.db"
+  // url      = "file:./db/dev.db"
 }
 
 
