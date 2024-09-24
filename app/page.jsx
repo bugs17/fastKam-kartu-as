@@ -285,7 +285,7 @@ export default function Home() {
         ref={imgRef}
         onChange={handleChangeUpload}
         type="file"
-        accept="image/*"
+        accept="image/*,video/*"
         className={`file-input file-input-bordered w-full max-w-xs self-center`} />}
 
         {/* textarea */}
