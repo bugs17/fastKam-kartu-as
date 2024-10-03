@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import Logo from '../asset/img/newlogo.png'
+import Logo from '../asset/img/safanpo.png'
 import Logo2 from '../asset/img/logoonly.png'
 import Link from "next/link";
 import ListMenuNav from "./list-menu-navbar";
