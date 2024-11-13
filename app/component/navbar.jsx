@@ -40,7 +40,8 @@ const Navbar = () => {
                     </ul>
                     </div> */}
                     <Link href={'/'} className="hidden md:block">
-                        <Image alt="Logo" src={Logo} height={100} width={100} />
+                        {/* <Image alt="Logo" src={Logo} height={100} width={100} /> */}
+                        <span>Fastkam</span>
                     </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
