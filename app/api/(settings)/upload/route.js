@@ -89,10 +89,18 @@ export const POST = async (request) => {
         try {
             // Mendapatkan data kontak yang sudah ada dari database
             kontakExist = await prisma.kontak.findMany();
+            // Normalisasi nomor telepon pada data kontak yang sudah ada
+            kontakExist = kontakExist.map(kontak => ({
+                ...kontak,
+                nope: formatPhoneNumber(kontak.nope)
+            }));
+
         } catch (error) {
             console.log("Gagal mengambil semua data kontak", error)
             return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
         }
+
+        // const uniqueContacts = new Set();
 
         // Melakukan loop pada data yang diambil dari file (jsonData)
         await Promise.all(
@@ -114,6 +122,11 @@ export const POST = async (request) => {
                         if (!kontakSudahAda && cleanKontak !== '') {
                             await addData(cleanKontak)
                         }
+                        // Jika cleanKontak sudah ada di database atau sudah ada di Set, abaikan
+                        // if (cleanKontak && !kontakExist.some(kontak => cleanKontak === kontak.nope) && !uniqueContacts.has(cleanKontak)) {
+                        //     uniqueContacts.add(cleanKontak); // Tambahkan ke Set
+                        //     await addData(cleanKontak);
+                        // }
                     }
                 })
             );
